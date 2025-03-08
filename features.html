@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELLINFO</title>
+    <link rel="icon" href="imgs/logo .png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="imgs/logo .png" alt="CELLINFO" width="60" height="60" class="d-inline-block align-top">
+                CELLINFO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="brandsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Brands
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="apple.html">Apple</a></li>
+                            <li><a class="dropdown-item" href="google.html">Google</a></li>
+                            <li><a class="dropdown-item" href="samsung.html">Samsung</a></li>
+                            <li><a class="dropdown-item" href="oneplus.html">OnePlus</a></li>
+                            <li><a class="dropdown-item" href="xiaomi.html">Xiaomi</a></li>
+                            <li><a class="dropdown-item" href="oppo.html">Oppo</a></li>
+                            <li><a class="dropdown-item" href="vivo.html">Vivo</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="comparison.html">Comparison</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Find Your Perfect Phone Section -->
+    <div class="container find-phone">
+        <h1>Find Your Perfect Phone</h1>
+        <form id="phoneForm">
+            <div class="mb-3">
+                <label for="budget" class="form-label">What is your budget?</label>
+                <select class="form-select" id="budget" required>
+                    <option value="low">Under $300</option>
+                    <option value="medium">$300 - $700</option>
+                    <option value="high">Above $700</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="usage" class="form-label">What is your primary usage?</label>
+                <select class="form-select" id="usage" required>
+                    <option value="gaming">Gaming</option>
+                    <option value="photography">Photography</option>
+                    <option value="business">Business</option>
+                    <option value="general">General Use</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="os" class="form-label">Preferred Operating System</label>
+                <select class="form-select" id="os" required>
+                    <option value="android">Android</option>
+                    <option value="ios">iOS</option>
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="battery" class="form-label">How important is battery life?</label>
+                <select class="form-select" id="battery" required>
+                    <option value="low">Not Important</option>
+                    <option value="medium">Moderately Important</option>
+                    <option value="high">Very Important</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="brand" class="form-label">Do you have a trusted brand?</label>
+                <select class="form-select" id="brand" required>
+                    <option value="none">No Preference</option>
+                    <option value="apple">Apple</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="google">Google</option>
+                    <option value="oneplus">OnePlus</option>
+                    <option value="xiaomi">Xiaomi</option>
+                    <option value="oppo">Oppo</option>
+                    <option value="realme">Realme</option>
+                    <option value="vivo">Vivo</option>
+                    <option value="huawei">Huawei</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-feature">Find My Phone</button>
+        </form>
+
+        <div id="result" class="result alert alert-success mt-4" style="display: none;"></div>
+        <div id="phoneDetails" class="phone-details" style="display: none;">
+            <img id="phoneImage" src="" alt="Phone Image" class="img-fluid">
+            <h4>Phone Details</h4>
+            <p id="phoneName"></p>
+            <p id="phonePrice"></p>
+            <p id="phoneBattery"></p>
+            <p id="phoneCamera"></p>
+            <p id="phonePerformance"></p>
+        </div>
+    </div>
+
+<hr>
+    <div class="contact-container">
+        <img src="imgs/logo .png" alt="CellInfo Logo" width="70">
+        <h2>Get in Touch</h2>
+        <p>Subscribe for updates on the latest mobile trends, news, and exclusive content.</p>
+        <form id="contactForm">
+          <div class="mb-3" id="nameContainer">
+            <input type="text" id="nameInput" class="form-control" placeholder="Enter your name" required>
+            <span class="error" id="nameError"></span>
+          </div>
+          <div class="mb-3" id="numberContainer">
+            <input type="tel" id="phoneInput" class="form-control" placeholder="Enter your number" required>
+            <span class="error" id="phoneError"></span>
+          </div>
+          <div class="mb-3" id="emailContainer">
+            <input type="email" id="emailInput" class="form-control" placeholder="Enter your email" required>
+            <span class="error" id="emailError"></span>
+          </div>
+          <button type="submit" id="submitButton" class="btn-contact">Submit</button>
+          <p id="thankYouMessage" class="hidden fade-in">Thank you! Your submission has been received!</p>
+        </form>
+      </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-3">
+                    <h5>CELLINFO.com</h5>
+                    <p>Providing detailed insights about the latest cell phones.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Home</a></li>
+                        <li><a href="#" class="text-light">Brands</a></li>
+                        <li><a href="#" class="text-light">Comparisons</a></li>
+                        <li><a href="#" class="text-light">Features</a></li>
+                        <li><a href="#" class="text-light">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <p>Address: A-65, ACME Co., Street no 12, New York</p>
+                    <p>Phone: +001-28272300</p>
+                    <p>Email: <a href="mailto:webmaster@cellinfo.com" class="text-light">webmaster@cellinfo.com</a></p>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <a href="https://www.facebook.com/login/" class="text-light me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/" class="text-light me-2"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?hl=en" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center mt-3">
+                <p class="mb-0">&copy; 2025 CELLINFO.com | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS & jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('phoneForm').addEventListener('submit', function (e) {
+  e.preventDefault(); 
+
+  const budget = document.getElementById('budget').value;
+  const usage = document.getElementById('usage').value;
+  const os = document.getElementById('os').value;
+  const battery = document.getElementById('battery').value;
+  const brand = document.getElementById('brand').value;
+
+  let phone = null;
+
+  if (os === 'ios') {
+      if (brand === 'apple') {
+          phone = phones.ios[budget];
+      } else {
+          // If the brand is not Apple, no phone is available
+          phone = null;
+      }
+  } else if (os === 'android') {
+      if (brand !== 'none') {
+          phone = phones.android[brand] ? phones.android[brand][budget] : null;
+      } else {
+          // If no brand is selected, default to Samsung
+          phone = phones.android.samsung[budget];
+      }
+  }
+
+  const resultDiv = document.getElementById('result');
+  const phoneDetailsDiv = document.getElementById('phoneDetails');
+  if (phone) {
+      resultDiv.textContent = `Your perfect phone is: ${phone.name}`;
+      document.getElementById('phoneName').textContent = `Name: ${phone.name}`;
+      document.getElementById('phonePrice').textContent = `Price: ${phone.price}`;
+      document.getElementById('phoneBattery').textContent = `Battery: ${phone.battery}`;
+      document.getElementById('phoneCamera').textContent = `Camera: ${phone.camera}`;
+      document.getElementById('phonePerformance').textContent = `Performance: ${phone.performance}`;
+      document.getElementById('phoneImage').src = phone.image;
+      resultDiv.style.display = 'block';
+      phoneDetailsDiv.style.display = 'block';
+  } else {
+      resultDiv.textContent = "No phone found matching your criteria.";
+      phoneDetailsDiv.style.display = 'none';
+  }
+});
+
+const phones = {
+  ios: {
+      low: {
+          name: "iPhone SE",
+          price: "$299",
+          battery: "1821 mAh",
+          camera: "12 MP",
+          performance: "A15 Bionic Chip",
+          image: "imgs/iPhone+SE.jfif"
+      },
+      medium: {
+          name: "iPhone 13",
+          price: "$699",
+          battery: "3227 mAh",
+          camera: "12 MP Dual",
+          performance: "A15 Bionic Chip",
+          image: "imgs/iPhone+13.jfif"
+      },
+      high: {
+          name: "iPhone 15 Pro",
+          price: "$999",
+          battery: "4352 mAh",
+          camera: "48 MP Triple",
+          performance: "A17 Pro Chip",
+          image: "imgs/iPhone+15pro.jfif"
+      }
+  },
+  android: {
+      samsung: {
+          low: {
+              name: "Samsung Galaxy A14",
+              price: "$199",
+              battery: "5000 mAh",
+              camera: "50 MP Triple",
+              performance: "Exynos 850",
+              image: "imgs/Samsung Galaxy A14.jfif"
+          },
+          medium: {
+              name: "Samsung Galaxy S23",
+              price: "$799",
+              battery: "3900 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/Samsung Galaxy S32.jfif"
+          },
+          high: {
+              name: "Samsung Galaxy Z Fold5",
+              price: "$1799",
+              battery: "4400 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/Samsung Galaxy Z Fold5.jfif"
+          }
+      },
+      google: {
+          low: {
+              name: "Google Pixel 6a",
+              price: "$349",
+              battery: "4410 mAh",
+              camera: "12.2 MP Dual",
+              performance: "Google Tensor",
+              image: "imgs/Google Pixel 6a.jfif"
+          },
+          medium: {
+              name: "Google Pixel 7",
+              price: "$599",
+              battery: "4355 mAh",
+              camera: "50 MP Dual",
+              performance: "Google Tensor G2",
+              image: "imgs/Google Pixel 7.jfif"
+          },
+          high: {
+              name: "Google Pixel 8 Pro",
+              price: "$999",
+              battery: "5050 mAh",
+              camera: "50 MP Triple",
+              performance: "Google Tensor G3",
+              image: "imgs/Google Pixel 8 Pro.jfif"
+          }
+      },
+      oneplus: {
+          low: {
+              name: "OnePlus Nord N30",
+              price: "$299",
+              battery: "5000 mAh",
+              camera: "108 MP Triple",
+              performance: "Snapdragon 695",
+              image: "imgs/OnePlus Nord N30.jfif"
+          },
+          medium: {
+              name: "OnePlus 11",
+              price: "$699",
+              battery: "5000 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/OnePlus 11.jfif"
+          },
+          high: {
+              name: "OnePlus Open",
+              price: "$1699",
+              battery: "4805 mAh",
+              camera: "48 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/OnePlus Open.jfif"
+          }
+      },
+      xiaomi: {
+          low: {
+              name: "Xiaomi Redmi Note 12",
+              price: "$199",
+              battery: "5000 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 685",
+              image: "imgs/Xiaomi Redmi Note 12.jfif"
+          },
+          medium: {
+              name: "Xiaomi 13",
+              price: "$699",
+              battery: "4500 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/Xiaomi 13.jfif"
+          },
+          high: {
+              name: "Xiaomi 13 Ultra",
+              price: "$999",
+              battery: "5000 mAh",
+              camera: "50 MP Quad",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/Xiaomi 13 Ultra.jfif"
+          }
+      },
+      oppo: {
+          low: {
+              name: "Oppo A78",
+              price: "$249",
+              battery: "5000 mAh",
+              camera: "50 MP Dual",
+              performance: "Snapdragon 680",
+              image: "imgs/Oppo A78.jfif"
+          },
+          medium: {
+              name: "Oppo Find X6",
+              price: "$799",
+              battery: "4800 mAh",
+              camera: "50 MP Triple",
+              performance: "Dimensity 9200",
+              image: "imgs/Oppo Find X6.jfif"
+          },
+          high: {
+              name: "Oppo Find N2 Flip",
+              price: "$999",
+              battery: "4300 mAh",
+              camera: "50 MP Dual",
+              performance: "Dimensity 9000+",
+              image: "imgs/Oppo Find N2 Flip.jfif"
+          }
+      },
+      realme: {
+          low: {
+              name: "Realme Narzo 60x",
+              price: "$179",
+              battery: "5000 mAh",
+              camera: "50 MP Dual",
+              performance: "Dimensity 6100+",
+              image: "imgs/Realme Narzo 60x.jfif"
+          },
+          medium: {
+              name: "Realme GT Neo 5",
+              price: "$499",
+              battery: "4600 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8+ Gen 1",
+              image: "imgs/Realme GT Neo 5.jfif"
+          },
+          high: {
+              name: "Realme GT 3",
+              price: "$799",
+              battery: "4600 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/realme gt 3.jpg"
+          }
+      },
+      vivo: {
+          low: {
+              name: "Vivo Y27",
+              price: "$199",
+              battery: "5000 mAh",
+              camera: "50 MP Dual",
+              performance: "Helio G85",
+              image: "imgs/Vivo Y27.jfif"
+          },
+          medium: {
+              name: "Vivo X90",
+              price: "$799",
+              battery: "4810 mAh",
+              camera: "50 MP Triple",
+              performance: "Dimensity 9200",
+              image: "imgs/Vivo X90.jfif"
+          },
+          high: {
+              name: "Vivo X Fold2",
+              price: "$1399",
+              battery: "4800 mAh",
+              camera: "50 MP Quad",
+              performance: "Snapdragon 8 Gen 2",
+              image: "imgs/Vivo X Fold2.jfif"
+          }
+      },
+      huawei: {
+          low: {
+              name: "Huawei Nova Y90",
+              price: "$199",
+              battery: "5000 mAh",
+              camera: "50 MP Dual",
+              performance: "Snapdragon 680",
+              image: "imgs/Huawei Nova Y90.jfif"
+          },
+          medium: {
+              name: "Huawei P60",
+              price: "$799",
+              battery: "4815 mAh",
+              camera: "48 MP Triple",
+              performance: "Snapdragon 8+ Gen 1",
+              image: "imgs/Huawei P60.jfif"
+          },
+          high: {
+              name: "Huawei Mate X3",
+              price: "$1699",
+              battery: "4800 mAh",
+              camera: "50 MP Triple",
+              performance: "Snapdragon 8+ Gen 1",
+              image: "imgs/Huawei Mate X3.jfif"
+          }
+      }
+  }
+};
+    </script>
+</body>
+</html>
