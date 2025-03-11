@@ -177,19 +177,23 @@
                 </form>
             </div>
         </div>
+        <button id="toggleDarkMode">
+            <i id="modeIcon" class="fas fa-sun"></i>
+        </button>
     </nav>
-    <section class="hero">
-        <video autoplay muted loop>
+    <section class="hero position-relative">
+        <video autoplay muted loop class="w-100">
             <source src="imgs/iPhone 15 Ultra - Apple.mp4" type="video/mp4">
         </video>
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1 class="fade-in">Discover the Perfect iPhone for You</h1>
-            <p class="fade-in">From the powerful iPhone 15 Pro to the beloved iPhone SE—find the one that fits your
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+        <div class="hero-content position-absolute top-50 start-50 translate-middle text-center text-white">
+            <h1 class="fade-in fw-bold">Discover the Perfect iPhone for You</h1>
+            <p class="fade-in fs-5">From the powerful iPhone 15 Pro to the beloved iPhone SE—find the one that fits your 
                 style, performance needs, and budget.</p>
-            <a href="#" class="cta fade-in">Explore IPhone </a>
+            <a href="#" class="btn btn-primary btn-lg fade-in">Explore iPhone</a>
         </div>
     </section>
+    
     <hr>
     <div class="container apple">
         <div class="card2" style="box-shadow: 0px 4px 10px 1px rgba(6, 62, 95, 0.849);">
@@ -276,7 +280,8 @@
                 </ul>
             </div>
         </div>
-        <button class="View"><a href="https://www.apple.com/iphone/" target="_parent">View More </a></button>
+        <button class="View btn-contact"><a href="https://www.apple.com/iphone/" target="_parent">View More </a></button>
+        <button class="View btn-contact"><a href="specs pdf/Apple.pdf" download target="_blank">View Specs </a></button>
     </div>
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">

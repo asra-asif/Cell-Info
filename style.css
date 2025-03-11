@@ -7,14 +7,16 @@
 
 * {
     margin: 0;
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-i:hover{
+
+i:hover {
     color: var(--cta-color);
 
 }
+
 h2 {
     font-size: 2rem;
     font-weight: 600;
@@ -103,6 +105,7 @@ hr {
     height: 100vh;
     overflow: hidden;
 }
+
 .hero video {
     position: absolute;
     top: 50%;
@@ -113,6 +116,7 @@ hr {
     object-fit: cover;
     z-index: -1;
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -121,6 +125,7 @@ hr {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
+
 .hero-content {
     position: absolute;
     top: 50%;
@@ -130,6 +135,7 @@ hr {
     color: white;
     font-family: 'Arial', sans-serif;
 }
+
 .hero-content h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -139,6 +145,7 @@ hr {
     display: inline-block;
     animation: lightSwipe 2s linear infinite;
 }
+
 .hero-content p {
     font-size: 1.5rem;
     margin-top: 10px;
@@ -146,6 +153,7 @@ hr {
     transform: translateY(20px);
     animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
 }
+
 .cta {
     display: inline-block;
     margin-top: 20px;
@@ -157,20 +165,24 @@ hr {
     text-decoration: none;
     transition: all 0.3s ease;
 }
+
 .cta:hover {
     background: white;
     color: black;
 }
+
 @keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 @keyframes lightSwipe {
     0% {
         background-position: -200px;
     }
+
     100% {
         background-position: 200px;
     }
@@ -206,16 +218,17 @@ hr {
     font-size: 2rem;
 }
 
+
 /* <!-- Latest Phones Section --> */
 
 
 .phone-card {
     border: 1px solid #ddd;
+    background-color: transparent;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
     transition: 0.3s;
-    background-color: var(--bg-color);
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -240,7 +253,48 @@ hr {
     text-align: left;
     color: var(--text-color);
 }
+/* quiz section  */
+#quiz-cta {
+    position: relative;
+    padding: 20px;
+    background: transparent;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    width: 855px;
+    left: 244px;
+}
 
+#quiz-cta::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    z-index: -1;
+    border-radius: 12px;
+}
+
+  /* #quiz-cta {
+
+    color: rgb(14, 10, 10);
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 80%;
+  } */
+  #quiz-cta .btn {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+  }
+  #quiz-cta .btn:hover {
+    background-color: #ff9900;
+    transform: scale(1.05);
+  }
 /* <!-- comparision  --> */
 .mobile-card {
     border: 1px solid #ccc;
@@ -293,7 +347,8 @@ hr {
     border-collapse: collapse;
 }
 
-.comparison-table th, .comparison-table td {
+.comparison-table th,
+.comparison-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -302,10 +357,12 @@ hr {
 .comparison-table th {
     background-color: #f2f2f2;
 }
+
 /* -----------------about.html------------------- */
 .About {
     color: var(--text-color);
 }
+
 .about-images-section {
     overflow: hidden;
 }
@@ -462,11 +519,12 @@ h2 {
     margin-right: 15px;
     font-weight: 700;
 }
+
 .error {
     color: red;
     font-size: 0.9em;
     margin-top: 0.25rem;
-  }
+}
 
 /* feature.html
 <!-- Find Your Perfect Phone Section --> */
@@ -512,10 +570,10 @@ h2 {
 .phone-details {
     margin-top: 20px;
     padding: 15px;
-    background-color:transparent;
+    background-color: transparent;
     border-radius: 15px;
     /* border: 1px solid black; */
-    box-shadow:0 0 5px black;
+    box-shadow: 0 0 5px black;
     text-align: center;
 }
 
@@ -545,6 +603,37 @@ h2 {
     border-radius: 10px;
     margin-bottom: 15px;
 }
+/* toogle */
+
+.dark-mode {
+    background-color: #212529f5;
+    color: #E0E0E0;
+}
+
+.dark-mode .nav-link,
+.dark-mode .btn,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p,
+.dark-mode a {
+    color: #E0E0E0;
+}
+
+.dark-mode .navbar {
+    background-color: #21252993;
+}
+
+#toggleDarkMode {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#toggleDarkMode i {
+    margin-left: -119px;
+    font-size: 32px;
+}
 /* animation */
 .fade-in {
     opacity: 0;
@@ -560,9 +649,8 @@ h2 {
 .scroll-hidden {
     opacity: 0;
     transition: opacity 0.6s ease-out;
-  }
-  
-  .scroll-visible {
+}
+
+.scroll-visible {
     opacity: 1;
-  }
-  
+}

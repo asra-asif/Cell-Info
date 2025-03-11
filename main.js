@@ -1,4 +1,29 @@
+// toogle 
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("toggleDarkMode");
+  const modeIcon = document.getElementById("modeIcon");
 
+  // Local Storage se check karein pehle kaunsa mode set hai
+  const currentTheme = localStorage.getItem("theme");
+
+  if (currentTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      modeIcon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  // Button click par toggle karega
+  toggleButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+          modeIcon.classList.replace("fa-sun", "fa-moon"); // Sun to Moon
+          localStorage.setItem("theme", "dark");
+      } else {
+          modeIcon.classList.replace("fa-moon", "fa-sun"); // Moon to Sun
+          localStorage.setItem("theme", "light");
+      }
+  });
+});
 
 // comparision 
 let mobiles = {

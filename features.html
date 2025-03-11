@@ -11,6 +11,81 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .find-phone {
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-feature {
+    width: 100%;
+    padding: 10px;
+    border-radius: 22px;
+    font-size: 16px;
+    background-color: var(--fg-color, #007bff);
+    color: var(--bg-color, #fff);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.btn-feature:hover {
+    border: 1px solid var(--fg-color, #007bff);
+    color: var(--fg-color, #007bff);
+    background: transparent;
+
+
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.phone-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color:transparent;
+    border-radius: 15px;
+    /* border: 1px solid black; */
+    box-shadow:0 0 5px black;
+    text-align: center;
+}
+
+.find-phone h1 {
+    text-align: center;
+    color: var(--text-color, #333);
+    margin-right: 15px;
+    font-weight: 700;
+}
+
+.phone-details h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+
+}
+
+.phone-details p {
+    color: var(--text-color, #333);
+    margin-right: 15px;
+    font-weight: 400;
+}
+
+.phone-details img {
+    border: 1px solid black;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+    </style>
 </head>
 
 <body>
@@ -65,6 +140,9 @@
                 </form>
             </div>
         </div>
+        <button id="toggleDarkMode">
+            <i id="modeIcon" class="fas fa-sun"></i>
+        </button>
     </nav>
 
     <!-- Find Your Perfect Phone Section -->
