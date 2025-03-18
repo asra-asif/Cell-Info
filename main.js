@@ -1,9 +1,87 @@
+// search bar
+    document.querySelector(".d-flex").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        let searchQuery = document.querySelector(".form-control").value.toLowerCase();
+        let pages = {
+            "home": "index.html",
+            "about": "about.html",
+            "features": "features.html",
+            "comparison": "comparison.html",
+            "contact": "contact.html",
+            "apple": "apple.html",
+            "google": "google.html",
+            "samsung": "samsung.html",
+            "oneplus": "oneplus.html",
+            "xiaomi": "xiaomi.html",
+            "oppo": "oppo.html",
+            "vivo": "vivo.html"
+        };
+        
+        if (pages[searchQuery]) {
+            window.location.href = pages[searchQuery];
+        } else {
+            alert("Not Found! Try again.");
+        }
+    });
+
+
+
+// latest reviews 
+document.addEventListener("DOMContentLoaded", loadReviews);
+
+function submitReview() {
+    let name = document.getElementById("username").value;
+    let rating = document.getElementById("rating").value;
+    let review = document.getElementById("user-review").value;
+
+    if (!name || !review) {
+        alert("Please enter your name and review!");
+        return;
+    }
+
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.unshift({ name, rating, review });
+
+    if (reviews.length > 5) reviews.pop();
+
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+    loadReviews();
+
+    document.getElementById("username").value = "";
+    document.getElementById("user-review").value = "";
+}
+
+function loadReviews() {
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    let reviewsList = document.getElementById("reviews-list");
+    reviewsList.innerHTML = "";
+
+    reviews.forEach((r, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <div>
+                <strong>${r.name}</strong> - ${"⭐".repeat(r.rating)} <br> 
+                ${r.review}
+            </div>
+            <button class="remove-btn" onclick="removeReview(${index})">Remove</button>
+        `;
+        reviewsList.appendChild(li);
+    });
+}
+
+function removeReview(index) {
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.splice(index, 1);
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+    loadReviews();
+}
+
 // toogle 
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.getElementById("toggleDarkMode");
   const modeIcon = document.getElementById("modeIcon");
 
-  // Local Storage se check karein pehle kaunsa mode set hai
   const currentTheme = localStorage.getItem("theme");
 
   if (currentTheme === "dark") {
@@ -11,15 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
       modeIcon.classList.replace("fa-sun", "fa-moon");
   }
 
-  // Button click par toggle karega
   toggleButton.addEventListener("click", function () {
       document.body.classList.toggle("dark-mode");
 
       if (document.body.classList.contains("dark-mode")) {
-          modeIcon.classList.replace("fa-sun", "fa-moon"); // Sun to Moon
+          modeIcon.classList.replace("fa-sun", "fa-moon"); 
           localStorage.setItem("theme", "dark");
       } else {
-          modeIcon.classList.replace("fa-moon", "fa-sun"); // Moon to Sun
+          modeIcon.classList.replace("fa-moon", "fa-sun");
           localStorage.setItem("theme", "light");
       }
   });

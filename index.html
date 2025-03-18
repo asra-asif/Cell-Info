@@ -71,7 +71,7 @@
         
     </nav>
     <!-- hero section  -->
-    <section class="hero">
+    <section class="hero" id="home">
         <video autoplay muted loop>
             <source src="imgs/hero bg.mp4" type="video/mp4">
         </video>
@@ -134,8 +134,38 @@
     </div>
 </section>
 <hr>
+<!-- gallery  -->
+<h2><span>Our Gallery</span> </h2>
+
+<section class="gallery">
+    <div class="slide"><img src="imgs/slider1.jpeg" alt="Image 1"></div>
+<div class="slider">
+    <div class="slide-track">
+        <div class="slide"><img src="imgs/apple 15.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="imgs/vivo-y200.jpg" alt="Image 3"></div>
+        <div class="slide"><img src="imgs/galaxy-s24.webp" alt="Image 4"></div>
+        <div class="slide"><img src="imgs/OnePlus Nord N30.jfif" alt="Image 5"></div>
+        <div class="slide"><img src="imgs/Xiaomi 13.jfif" alt="Image 6"></div>
+        <div class="slide"><img src="imgs/oneplus13r.jpg" alt="Image 7"></div>
+        <div class="slide"><img src="imgs/galaxy-s25-ultra.png" alt="Image 8"></div>
+        <div class="slide"><img src="imgs/infinix-smart-9.jpg" alt="Image 9"></div>
+        <div class="slide"><img src="imgs/redmi-note-14.jpg" alt="Image 10"></div>
+
+        <div class="slide"><img src="imgs/apple 15.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="imgs/vivo-y200.jpg" alt="Image 3"></div>
+        <div class="slide"><img src="imgs/galaxy-s24.webp" alt="Image 4"></div>
+        <div class="slide"><img src="imgs/OnePlus Nord N30.jfif" alt="Image 5"></div>
+        <div class="slide"><img src="imgs/Xiaomi 13.jfif" alt="Image 6"></div>
+        <div class="slide"><img src="imgs/oneplus13r.jpg" alt="Image 7"></div>
+        <div class="slide"><img src="imgs/galaxy-s25-ultra.png" alt="Image 8"></div>
+        <div class="slide"><img src="imgs/infinix-smart-9.jpg" alt="Image 9"></div>
+        <div class="slide"><img src="imgs/redmi-note-14.jpg" alt="Image 10"></div>
+    </div>
+</div>
+</section>
+<hr>
     <!-- Latest Mobile Phones  -->
-    <div class="container mt-4">
+    <div class="container mt-4" id="latestphone">
         <h2 class="text-center mb-4">Latest Mobile Phones & Prices in Pakistan</h2>
 
         <div class="row fade-in" >
@@ -233,7 +263,7 @@
     </div>
     <hr>
     <!-- Quiz CTA Section -->
-    <section id="quiz-cta" class="text-center text-md-start py-5">
+    <section id="quiz-cta" class="text-center text-md-start py-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -248,6 +278,29 @@
     </section>
     
   <hr>
+  <section class="dynareviews">
+
+    <div id="review-form">
+        <h2>Leave a Review</h2>
+        <input type="text" id="username" placeholder="Enter your name" required >
+        <select id="rating" style="width: 96%;">
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+        <textarea id="user-review" placeholder="Write your review..." required></textarea>
+        <button onclick="submitReview()">Submit</button>
+    </div>
+
+    <div id="latest-reviews" style="margin-top: 20px;">
+        <h2>Latest Reviews</h2>
+        <ul id="reviews-list"></ul>
+    </div>
+</section>
+<hr>
+  
     <!-- contact Section -->
 
     <div class="contact-container">
@@ -285,11 +338,11 @@
                     <div class="col-md-3">
                         <h5>Quick Links</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-light">Home</a></li>
-                            <li><a href="#" class="text-light">Brands</a></li>
-                            <li><a href="#" class="text-light">Comparisons</a></li>
-                            <li><a href="#" class="text-light">Features</a></li>
-                            <li><a href="#" class="text-light">Contact Us</a></li>
+                            <li><a href="index.html" class="text-light">Home</a></li>
+                            <li><a href="apple.html" class="text-light">Brands</a></li>
+                            <li><a href="comparison.html" class="text-light">Comparisons</a></li>
+                            <li><a href="features.html" class="text-light">Features</a></li>
+                            <li><a href="contact.html" class="text-light">Contact Us</a></li>
                         </ul>
                     </div>
     

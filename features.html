@@ -195,7 +195,6 @@
                     <option value="google">Google</option>
                     <option value="oneplus">OnePlus</option>
                     <option value="xiaomi">Xiaomi</option>
-                    <option value="oppo">Oppo</option>
                     <option value="realme">Realme</option>
                     <option value="vivo">Vivo</option>
                     <option value="huawei">Huawei</option>
@@ -207,12 +206,14 @@
         <div id="result" class="result alert alert-success mt-4" style="display: none;"></div>
         <div id="phoneDetails" class="phone-details" style="display: none;">
             <img id="phoneImage" src="" alt="Phone Image" class="img-fluid">
+           <div class="result-content">
             <h4>Phone Details</h4>
-            <p id="phoneName"></p>
-            <p id="phonePrice"></p>
-            <p id="phoneBattery"></p>
-            <p id="phoneCamera"></p>
-            <p id="phonePerformance"></p>
+            <p id="phoneName" style="color: #111010;"></p>
+            <p id="phonePrice" style="color: #111010;"></p>
+            <p id="phoneBattery" style="color: #111010;"></p>
+            <p id="phoneCamera" style="color: #111010;"></p>
+            <p id="phonePerformance" style="color: #111010;"></p>
+           </div>
         </div>
     </div>
 
@@ -253,11 +254,11 @@
                 <div class="col-md-3">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Home</a></li>
-                        <li><a href="#" class="text-light">Brands</a></li>
-                        <li><a href="#" class="text-light">Comparisons</a></li>
-                        <li><a href="#" class="text-light">Features</a></li>
-                        <li><a href="#" class="text-light">Contact Us</a></li>
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="apple.html" class="text-light">Brands</a></li>
+                        <li><a href="comparison.html" class="text-light">Comparisons</a></li>
+                        <li><a href="features.html" class="text-light">Features</a></li>
+                        <li><a href="contact.html" class="text-light">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -289,7 +290,8 @@
     <!-- Bootstrap JS & jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <script src="lazyload.js" defer></script>
     <script>
         document.getElementById('phoneForm').addEventListener('submit', function (e) {
   e.preventDefault(); 
@@ -306,14 +308,12 @@
       if (brand === 'apple') {
           phone = phones.ios[budget];
       } else {
-          // If the brand is not Apple, no phone is available
           phone = null;
       }
   } else if (os === 'android') {
       if (brand !== 'none') {
           phone = phones.android[brand] ? phones.android[brand][budget] : null;
       } else {
-          // If no brand is selected, default to Samsung
           phone = phones.android.samsung[budget];
       }
   }
