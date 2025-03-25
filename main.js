@@ -1,6 +1,42 @@
+    // geolocation
+    let getBtn = document.getElementById('getBtn');
+    if (getBtn) { 
+        getBtn.addEventListener('click', function () {
+            let displayLocation = document.getElementById('displayLocation');
+            let mapFrame = document.getElementById('mapFrame');
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const { latitude, longitude } = position.coords;
+                        console.log(latitude, longitude);
+
+                        let mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+                        displayLocation.innerHTML = `
+                            <a href='${mapUrl}' target="_blank" style="color: #0d6efd; text-decoration: underline;">
+                                View on Google Maps
+                            </a>
+                        `;
+
+                        if (mapFrame) {  
+                            mapFrame.src = `https://www.google.com/maps?q=${latitude},${longitude}&output=embed`;
+                        }
+                    },
+                    function (error) {
+                        displayLocation.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                    }
+                );
+            } else {
+                displayLocation.innerHTML = `<p style="color: red;">Geolocation is not supported by this browser.</p>`;
+            }
+        });
+    }
+
+
 // search bar
     document.querySelector(".d-flex").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
         
         let searchQuery = document.querySelector(".form-control").value.toLowerCase();
         let pages = {
@@ -24,59 +60,6 @@
             alert("Not Found! Try again.");
         }
     });
-
-
-
-// latest reviews 
-document.addEventListener("DOMContentLoaded", loadReviews);
-
-function submitReview() {
-    let name = document.getElementById("username").value;
-    let rating = document.getElementById("rating").value;
-    let review = document.getElementById("user-review").value;
-
-    if (!name || !review) {
-        alert("Please enter your name and review!");
-        return;
-    }
-
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.unshift({ name, rating, review });
-
-    if (reviews.length > 5) reviews.pop();
-
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-    loadReviews();
-
-    document.getElementById("username").value = "";
-    document.getElementById("user-review").value = "";
-}
-
-function loadReviews() {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    let reviewsList = document.getElementById("reviews-list");
-    reviewsList.innerHTML = "";
-
-    reviews.forEach((r, index) => {
-        let li = document.createElement("li");
-        li.innerHTML = `
-            <div>
-                <strong>${r.name}</strong> - ${"⭐".repeat(r.rating)} <br> 
-                ${r.review}
-            </div>
-            <button class="remove-btn" onclick="removeReview(${index})">Remove</button>
-        `;
-        reviewsList.appendChild(li);
-    });
-}
-
-function removeReview(index) {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.splice(index, 1);
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-    loadReviews();
-}
-
 // toogle 
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.getElementById("toggleDarkMode");
@@ -142,7 +125,7 @@ $(document).ready(function () {
     // Add mobile to comparison
     $(document).on("click", ".mobile-card", function () {
         let name = $(this).attr("data-name");
-        if (!selectedMobiles.includes(name) && selectedMobiles.length < 5) {
+        if (!selectedMobiles.includes(name) && selectedMobiles.length < 3) {
             selectedMobiles.push(name);
             let specs = mobiles[name];
             let compareCard = `<div class='col-md-4'>
@@ -214,49 +197,60 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 // contact 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    document.getElementById("nameError").innerText = "";
-    document.getElementById("phoneError").innerText = "";
-    document.getElementById("emailError").innerText = "";
-    
-    var nameInput = document.getElementById("nameInput");
-    var phoneInput = document.getElementById("phoneInput");
-    var emailInput = document.getElementById("emailInput");
-    var emailContainer = document.getElementById("emailContainer");
-    var submitButton = document.getElementById("submitButton");
-    var thankYouMessage = document.getElementById("thankYouMessage");
+document.addEventListener("DOMContentLoaded", function () {
+    let contactForm = document.getElementById("contactForm");
 
-    var namePattern = /^[A-Za-z\s]+$/;
-    var phonePattern = /^[0-9]{10,15}$/;
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (contactForm) { 
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("phoneError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            
+            var nameInput = document.getElementById("nameInput");
+            var phoneInput = document.getElementById("phoneInput");
+            var emailInput = document.getElementById("emailInput");
+            var emailContainer = document.getElementById("emailContainer");
+            var submitButton = document.getElementById("submitButton");
+            var thankYouMessage = document.getElementById("thankYouMessage");
 
-    var valid = true;
+            var namePattern = /^[A-Za-z\s]+$/;
+            var phonePattern = /^[0-9]{10,15}$/;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!namePattern.test(nameInput.value.trim())) {
-      document.getElementById("nameError").innerText = "Please enter a valid name (letters and spaces only).";
-      valid = false;
+            var valid = true;
+
+            if (!namePattern.test(nameInput.value.trim())) {
+                document.getElementById("nameError").innerText = "Please enter a valid name (letters and spaces only).";
+                valid = false;
+            }
+            if (!phonePattern.test(phoneInput.value.trim())) {
+                document.getElementById("phoneError").innerText = "Please enter a valid phone number (10 to 15 digits).";
+                valid = false;
+            }
+            if (!emailPattern.test(emailInput.value.trim())) {
+                document.getElementById("emailError").innerText = "Please enter a valid email address.";
+                valid = false;
+            }
+
+            if (!valid) {
+                return;
+            }
+
+            submitButton.style.display = "none";
+            thankYouMessage.classList.remove("hidden");
+            setTimeout(() => {
+                thankYouMessage.style.opacity = "1";
+            }, 100);
+        });
+    } else {
+        console.warn("contactForm not found on this page.");
     }
-    if (!phonePattern.test(phoneInput.value.trim())) {
-      document.getElementById("phoneError").innerText = "Please enter a valid phone number (10 to 15 digits).";
-      valid = false;
-    }
-    if (!emailPattern.test(emailInput.value.trim())) {
-      document.getElementById("emailError").innerText = "Please enter a valid email address.";
-      valid = false;
-    }
+});
 
-    if (!valid) {
-      return;
-    }
+// logo animation 
 
-    submitButton.style.display = "none";
-    thankYouMessage.classList.remove("hidden");
-    setTimeout(() => {
-      thankYouMessage.style.opacity = "1";
-    }, 100);
-  });
-
-
-//   tooogle 
+$(document).ready(function () {
+    $(".navbar-brand img").addClass("logo-fade");
+});
